@@ -7,13 +7,23 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import FileResponse
 # from fastapi.responses import FileResponse
 
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:8081",
+    "http://localhost:8000",
+    "http://localhost:5500",
+    "http://localhost:5000",
+    "http://localhost:3000",
+]
+
 app = FastAPI(
     title="Text to Speech",
     description="This is a simple API to convert text to speech",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    allow_origins=["*"],
+    allow_origins=origins,
 )
 
 URL = "http://216.48.183.26/convert"
